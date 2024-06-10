@@ -1,1 +1,5 @@
-tomcat:9.0-jre8
+tomcat:8.5.97-jre8
+tomcat:9.0.83-jre8
+tomcat:8.5.96-jre8
+tomcat:9.0.82-jre8
+tomcat:8.5.95-jre8
