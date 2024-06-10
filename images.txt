@@ -1,5 +1,5 @@
 httpd:alpine3.20
-pull httpd:2.4.59
+httpd:2.4.59
 httpd:2.4.59-alpine3.20
 memcached:1.6.28
 memcached:1.6.28-alpine3.20
