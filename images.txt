@@ -1,1 +1,14 @@
 registry:2.8.3
+haproxy:3.0.0
+golang:1.22.4
+nextcloud:29.0.1
+redis:6.2.14
+redis:6.0.20
+redis:7.0.14
+neo4j:5.20.0
+golang:alpine3.20
+maven:3.9.7
+ruby:alpine3.20
+ruby:3.3.2
+docker:26.1.4-alpine3.20
+docker:26.1.4
