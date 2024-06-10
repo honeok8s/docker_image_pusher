@@ -1,2 +1,13 @@
-caddy:2.8.4
-
+centos:centos7.9.2009
+centos:centos8.4.2105
+bash:4.0.44
+bash:3.2.57
+phpmyadmin:5.2.1
+phpmyadmin:fpm
+phpmyadmin:apache
+phpmyadmin:5.2.1-fpm
+django:python3-onbuild
+django:python2-onbuild
+django:1.10.4
+flink:1.18.1
+rancher/rancher:v2.5.12
