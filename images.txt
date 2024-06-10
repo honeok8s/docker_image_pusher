@@ -1,11 +1,1 @@
-jenkins/jenkins:2.461-jdk17
-jenkins/jenkins:2.461-jdk11
-jenkins/jenkins:2.461-jdk21
-jenkins/jenkins:2.461
-jenkins/jenkins:2.460
-jenkins/jenkins:2.460-alpine
-jenkins/jenkins:2.335-jdk8
-jenkins/jenkins:2.334-centos7-jdk8
-jenkins/jenkins:2.333-jdk8
-jenkins/jenkins:2.336-alpine-jdk8
-jenkins/jenkins:2.336-centos7-jdk8
+ddsderek/aria2-pro:1.0.2
