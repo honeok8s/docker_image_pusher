@@ -1,1 +1,1 @@
-qingfeng2336/it-tools:latest
+tomcat:9.0-jre8
