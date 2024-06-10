@@ -1,4 +1,4 @@
-redis:7.2.5
-redis:6.2-alpine
-redis:7.0.15
-redis:6.2.14
+cloudreve/cloudreve:3.8.2
+cloudreve/cloudreve:3.8.1
+php:8.3.8-alpine3.20
+php:8.3.8-fpm-alpine3.20
