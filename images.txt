@@ -1,1 +1,12 @@
-nginx:stable-alpine3.19
+nginx:1.27.0
+nginx:1.27
+homeassistant/amd64-addon-mosquitto:6.4.1
+homeassistant/amd64-addon-mosquitto:6.4.0
+homeassistant/amd64-addon-mosquitto:6.3.1
+homeassistant/amd64-addon-mosquitto:6.3.0
+grafana/loki:main-a08ee68
+grafana/loki:main-2b19dac
+halohub/halo:2.16.2
+halohub/halo:2.16.1
+wordpress:php8.3-fpm-alpine
+wordpress:php8.3-fpm
