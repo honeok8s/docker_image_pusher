@@ -1,14 +1,1 @@
-mysql:8.4.0
-mysql:8.4
-mysql:8.0.37
-mysql:8.3.0
-mysql:8.0.36
-mysql:5.7.43
-mysql:5.7.42
-mysql:8.0.33
-mysql:8.0.32
-mysql:5.7.41
-mysql:8.0.31
-mysql:5.7.40
-mysql:8.0.30
-mysql:8.0.29
+nginx:stable-alpine3.19
