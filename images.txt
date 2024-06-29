@@ -1,2 +1,2 @@
-mysql:8.1.0
-halohub/halo:2.12
+django:1
+django:1.10
