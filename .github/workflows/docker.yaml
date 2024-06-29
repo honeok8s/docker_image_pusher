@@ -5,7 +5,6 @@ on:
   push:
     branches: [ main ]
 
-
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
@@ -15,38 +14,46 @@ env:
 jobs:
 
   build:
-    name: Pull
+    name: 构建和推送Docker镜像
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Docker buildx
-      uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+    - name: 设置 Docker buildx
+      uses: docker/setup-buildx-action@v1
 
-    - name: Check out code
+    - name: 检出代码
       uses: actions/checkout@v2
 
-    - name: Build and push image Aliyun
+    - name: 构建并推送镜像到阿里云镜像仓库
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
         while IFS= read -r line; do
-          [[ -z "$line" ]] && continue
-          echo "docker pull $line"
-          docker pull $line
-          platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
-          echo "platform is $platform"
-          # 如果存在架构信息 将架构信息拼到镜像名称前面
-          if [ -z "$platform" ]; then
-              platform_prefix=""
-          else
-              platform_prefix="${platform//\//_}_"
+          if [[ -z "$line" ]]; then
+            continue
           fi
-          echo "platform_prefix is $platform_prefix"
-          # 获取镜像的完整名称，例如kasmweb/nginx:1.25.3（命名空间/镜像名:版本号）
+
+          echo "正在拉取镜像：$line"
+          docker pull $line
+
+          # 提取镜像平台信息（如果有）
+          platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
+          echo "镜像平台：$platform"
+
+          # 准备用于打标签的平台前缀
+          if [ -z "$platform" ]; then
+            platform_prefix=""
+          else
+            platform_prefix="${platform//\//_}_"
+          fi
+
+          # 获取完整的镜像名称
           image=$(echo "$line" | awk '{print $NF}')
-          # 获取 镜像名:版本号  例如nginx:1.25.3
+          # 提取镜像名和标签
           image_name_tag=$(echo "$image" | awk -F'/' '{print $NF}')
           new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$image_name_tag"
-          echo "docker tag $image $new_image"
+
+          echo "正在标记镜像：$image 到 $new_image"
           docker tag $image $new_image
-          echo "docker push $new_image"
+        
+          echo "正在推送镜像：$new_image"
           docker push $new_image
         done < images.txt
